@@ -7,7 +7,7 @@
 char GlobalBuf[100] = { 0 };
 int ContinueFlag = 10;
 
-/*ƒtƒ@ƒCƒ‹–¼‚Ì“Ç‚İ‚İ*/
+/*ãƒ•ã‚¡ã‚¤ãƒ«åã®èª­ã¿è¾¼ã¿*/
 void GetFileName(char s[], int lim) {
 	int c, i;
 
@@ -17,7 +17,7 @@ void GetFileName(char s[], int lim) {
 	s[i] = '\0';
 }
 
-/*ƒoƒCƒiƒŠ‚ÌƒeƒXƒgƒtƒ@ƒCƒ‹ì¬*/
+/*ãƒã‚¤ãƒŠãƒªã®ãƒ†ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ*/
 int Make_Test_Binary(void) {
 
 	int i = 0;
@@ -25,17 +25,17 @@ int Make_Test_Binary(void) {
 	int buf2[DATA_NUM] = { 0 };
 	FILE *file;
 
-	/*ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“*/
+	/*ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³*/
 	file = fopen("test.dat", "wb");
 	if (file == NULL) {
-		printf("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“‚É¸”s\n");
+		printf("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã«å¤±æ•—\n");
 		return -1;
 	}
 	else {
-		printf("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“¬Œ÷\n");
+		printf("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³æˆåŠŸ\n");
 	}
 
-	/*ƒeƒXƒgƒf[ƒ^ì¬*/
+	/*ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ä½œæˆ*/
 	for (i = 0; i < DATA_NUM; i++)
 	{
 		fwrite(&buf1[i], 1, 2, file);
@@ -45,7 +45,7 @@ int Make_Test_Binary(void) {
 	return 0;
 }
 
-/*ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ&•\¦*/
+/*ãƒã‚¤ãƒŠãƒªãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿&è¡¨ç¤º*/
 void Read_Binary(FILE *fp, int DataAdd, int ByteNum) {
 	int i = 0;
 	unsigned char buf[100] = { 0 };
@@ -69,26 +69,26 @@ int main(void)
 
 
 	while (ContinueFlag == 10) {
-		/*ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“*/
-		printf("ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚ğƒhƒ‰ƒbƒO&ƒhƒƒbƒv‚µ‚ÄEnter\n\n");
+		/*ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³*/
+		printf("ãƒã‚¤ãƒŠãƒªãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‰ãƒ©ãƒƒã‚°&ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦Enter\n\n");
 		GetFileName(FileName, 1000);
 		fp = fopen(FileName, "rb");
 		if (fp == NULL) {
-			printf("\nƒtƒ@ƒCƒ‹ƒI[ƒvƒ“‚É¸”s\n");
-			printf("”CˆÓ‚ÌƒL[‚ÅI—¹");
+			printf("\nãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã«å¤±æ•—\n");
+			printf("ä»»æ„ã®ã‚­ãƒ¼ã§çµ‚äº†");
 			getchar();
 			return -1;
 		}
 		else {
-			printf("\nƒtƒ@ƒCƒ‹ƒI[ƒvƒ“¬Œ÷\n\n");
+			printf("\nãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³æˆåŠŸ\n\n");
 		}
 
 		printf("Read_A       = ");
 		Read_Binary(fp, 0x3AC3, 4);
 		printf("\n");
 
-		printf("\nŸ‚Ìƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ‚Ü‚·‚©H@Enter -> Yes, ”CˆÓ‚ÌƒL[+Enter -> I—¹\n\n");
-		ContinueFlag = getchar();
+		printf("\næ¬¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã¾ã™ã‹ï¼Ÿã€€Enter -> Yes, ä»»æ„ã®ã‚­ãƒ¼+Enter -> çµ‚äº†\n\n");
+		ContinueFlag = getchar();	/* Enter -> 10 */
 	}
 
 	fclose(fp);
